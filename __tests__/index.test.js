@@ -137,7 +137,7 @@ describe("findById()", () => {
   });
 });
 
-describe("filterByGenre()", () => {
+describe ("filterByGenre()", () => {
   test("should return all movies that include the specified genre", () => {
     const genre = "Mystery";
     const actual = filterByGenre(movies, genre);
@@ -155,7 +155,7 @@ describe("filterByGenre()", () => {
       movies[2], // Coco
       movies[5], // How to Train Your Dragon
       movies[8], // Fantasia
-      movies[9], // James and the Giant Peach
+      movies[9], // the Giant Peach
     ];
     expect(actual).toEqual(expected);
   });
@@ -196,7 +196,7 @@ describe("filterByGenre()", () => {
   });
 });
 
-describe("getAllMoviesReleasedAtOrBeforeYear()", () => {
+describe ("getAllMoviesReleasedAtOrBeforeYear()", () => {
   test("should return all movies where the `released` date is equal to or less than the year given", () => {
     const year = 2000;
     const actual = getAllMoviesReleasedAtOrBeforeYear(movies, year);
@@ -239,7 +239,7 @@ describe("getAllMoviesReleasedAtOrBeforeYear()", () => {
   });
 });
 
-describe("getBiggestBoxOfficeMovie()", () => {
+describe ("getBiggestBoxOfficeMovie()", () => {
   test("should return the name of the movie with the highest box office", () => {
     const actual = getBiggestBoxOfficeMovie(movies);
     const expected = "Incredibles 2";

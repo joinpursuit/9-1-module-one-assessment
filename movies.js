@@ -28,7 +28,7 @@ const movies = [
         value: "84/100",
       },
     ],
-    released: "21 Jun 2019",
+    released: "21 Jun 2019",            //<====
     response: "True",
     runtime: "100 min",
     title: "Toy Story 4",
@@ -40,6 +40,8 @@ const movies = [
     imdbRating: "7.7",
     imdbVotes: "214,286",
   },
+
+
   {
     actors: "Amy Poehler, Phyllis Smith, Richard Kind, Bill Hader",
     awards: "Won 1 Oscar. Another 99 wins & 116 nominations.",
@@ -69,7 +71,7 @@ const movies = [
         value: "94/100",
       },
     ],
-    released: "19 Jun 2015",
+    released: "19 Jun 2015",            //<====
     response: "True",
     runtime: "95 min",
     title: "Inside Out",
@@ -81,6 +83,8 @@ const movies = [
     imdbRating: "8.1",
     imdbVotes: "637,213",
   },
+
+
   {
     actors:
       "Anthony Gonzalez, Gael García Bernal, Benjamin Bratt, Alanna Ubach",
@@ -111,7 +115,7 @@ const movies = [
         value: "81/100",
       },
     ],
-    released: "22 Nov 2017",
+    released: "22 Nov 2017",            //<====
     response: "True",
     runtime: "105 min",
     title: "Coco",
@@ -123,6 +127,8 @@ const movies = [
     imdbRating: "8.4",
     imdbVotes: "410,659",
   },
+
+
   {
     actors: "Craig T. Nelson, Holly Hunter, Sarah Vowell",
     awards: "Nominated for 1 Oscar. 12 wins & 78 nominations total",
@@ -152,7 +158,7 @@ const movies = [
         value: "80/100",
       },
     ],
-    released: "15 Jun 2018",
+    released: "15 Jun 2018",            //<====
     response: "True",
     runtime: "118 min",
     title: "Incredibles 2",
@@ -163,6 +169,8 @@ const movies = [
     imdbRating: "7.6",
     imdbVotes: "260,243",
   },
+
+
   {
     actors: "Auli'i Cravalho, Dwayne Johnson, Rachel House",
     awards: "Nominated for 2 Oscars. 20 wins & 90 nominations total",
@@ -192,7 +200,7 @@ const movies = [
         value: "81/100",
       },
     ],
-    released: "23 Nov 2016",
+    released: "23 Nov 2016",            //<====
     response: "True",
     runtime: "107 min",
     title: "Moana",
@@ -203,6 +211,8 @@ const movies = [
     imdbRating: "7.6",
     imdbVotes: "287,134",
   },
+
+
   {
     actors: "Jay Baruchel, Gerard Butler, Craig Ferguson, America Ferrera",
     awards: "Nominated for 2 Oscars. Another 25 wins & 61 nominations.",
@@ -232,7 +242,7 @@ const movies = [
         value: "75/100",
       },
     ],
-    released: "26 Mar 2010",
+    released: "26 Mar 2010",            //<====
     response: "True",
     runtime: "98 min",
     title: "How to Train Your Dragon",
@@ -244,6 +254,9 @@ const movies = [
     imdbRating: "8.1",
     imdbVotes: "681,600",
   },
+
+
+
   {
     actors: "Hugh Bonneville, Sally Hawkins, Julie Walters",
     awards: "3 wins & 7 nominations total",
@@ -274,7 +287,7 @@ const movies = [
         value: "77/100",
       },
     ],
-    released: "16 Jan 2015",
+    released: "16 Jan 2015",            //<====
     response: "True",
     runtime: "95 min",
     title: "Paddington",
@@ -285,6 +298,8 @@ const movies = [
     imdbRating: "7.2",
     imdbVotes: "102,189",
   },
+
+
   {
     actors: "Matthew Broderick, Jeremy Irons, James Earl Jones",
     awards: "Won 2 Oscars. 39 wins & 35 nominations total",
@@ -314,7 +329,7 @@ const movies = [
         value: "88/100",
       },
     ],
-    released: "24 Jun 1994",
+    released: "24 Jun 1994",            //<====
     response: "True",
     runtime: "88 min",
     title: "The Lion King",
@@ -325,6 +340,8 @@ const movies = [
     imdbRating: "8.5",
     imdbVotes: "967,250",
   },
+
+
   {
     actors: "Leopold Stokowski, Deems Taylor, The Philadelphia Orchestra",
     awards: "Won 2 Oscars. 8 wins & 1 nomination total",
@@ -354,7 +371,7 @@ const movies = [
         value: "96/100",
       },
     ],
-    released: "19 Sep 1941",
+    released: "19 Sep 1941",            //<====
     response: "True",
     runtime: "125 min",
     title: "Fantasia",
@@ -365,6 +382,8 @@ const movies = [
     imdbRating: "7.7",
     imdbVotes: "90,460",
   },
+
+
   {
     actors: "Simon Callow, Richard Dreyfuss, Jane Leeves, Joanna Lumley",
     awards: "Nominated for 1 Oscar. Another 4 wins & 12 nominations.",
@@ -394,7 +413,7 @@ const movies = [
         value: "78/100",
       },
     ],
-    released: "12 Apr 1996",
+    released: "12 Apr 1996",            //<====
     response: "True",
     runtime: "79 min",
     title: "James and the Giant Peach",
