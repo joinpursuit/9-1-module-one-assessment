@@ -276,7 +276,19 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  //> "Incredibles 2"
  */
 function getBiggestBoxOfficeMovie(movies) {
-  
+  if (!movies.length) {
+    return null;
+  }
+  let movieName = movies[0].title
+  let highestBoxOffice = movies[0].boxOffice
+  for (i = 0; i < movies.length; i++) {
+    let movie = movies[i]
+  if (movie.boxOffice > highestBoxOffice) {
+      highestBoxOffice = movie.title;
+      return highestBoxOffice;
+      }
+    }
+    return movieName;
 }
 
 // Do not change anything below this line.
