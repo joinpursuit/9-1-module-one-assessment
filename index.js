@@ -56,15 +56,22 @@ return newArr;
  *  //> 96
  */
 function getHighestMetascore(movies) {
-//let scoreM = 0;
-
-//console.log(movies['metascore'])
-
-
-
-//return scoreM;
-
-
+  if( movies.length === 0){
+    return 0;;
+  }
+    let highestMeta =0;
+  
+  let metScore = movies[0].metascore // individual metascore value
+  //console.log(metScore)
+  
+   for(let i = 0; i < movies.length; i++){
+        if(metScore < movies[i].metascore){
+         highestMeta = Number(movies[i].metascore) // changed string to Number.
+            console.log(highestMeta)
+  }
+  }
+  //highestMeta = metScore;
+   return highestMeta;
 }
 
 /**
@@ -81,11 +88,10 @@ function getHighestMetascore(movies) {
 function getAverageIMDBRating(movies) {
   // declare a variable for the ratings value.
   let avRating = 0;
-  
   // iterate through the movies object using a loop
-  for(let m = 0; m < movies.length; m++){
+    for(let m = 0; m < movies.length; m++){
   // updaste variable to fectch the imdbRating values
-  avRating += movies[m].imdbRating / movies.length ;
+     avRating += movies[m].imdbRating / movies.length ;
   //console.log(avRating.toFixed(1))
 
 }
@@ -140,10 +146,14 @@ return count;
       // Toy Story 4
     };
  */
-function findById() {
+function findById(movies) {
   //guard clause --> maybe somwthing like...if (movies === 0; || Id !== movies) return null.
+  // let obj = {};
 
+  
+  // return obj;
 }
+
 
 /**
  * filterByGenre()
@@ -165,7 +175,7 @@ function findById() {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies) {}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -210,7 +220,7 @@ return reDate
 }
 
 /**
- * getBiggestBoxOfficeMovie()
+ * ge metascoregestBoxOfficeMovie()
  * -----------------------------
  * Returns the name of the movie with the highest `boxOffice` amount.
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
@@ -221,11 +231,28 @@ return reDate
  *  //> "Incredibles 2"
  */
 function getBiggestBoxOfficeMovie(movies) {
-  // let str = '';
+  //create an empty str var
+  //create a var to select thr first boxOffice number
+  //loop through the movies object
+  //iupdate the str var
+  //compate the bigBox number to every bigBox numbers.
+  //return str, as the updated values. 
+if( movies.length === 0){
+  return null;
+}
+  let big ='';
 
+let metScore = movies[0].boxOffice // individual boxOffice value
+//console.log(biggerbox)
 
-
-  // return str;
+ for(let i = 0; i < movies.length; i++){
+      if(biggerbox < movies[i].boxOffice){
+        biggerbox = movies[i].title
+          //console.log(biggerbox)
+}
+}
+big = biggerbox;
+ return big;
 }
 
 // Do not change anything below this line.
