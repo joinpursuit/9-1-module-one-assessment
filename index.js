@@ -548,7 +548,7 @@ function countByRating(movies) {
     };
  */
 function findById(movies,id) {
-  
+  let def = null
 
   if(movies.length === 0){
     return null
@@ -564,7 +564,7 @@ function findById(movies,id) {
   for(let list of movies){
     if(list['imdbID']==(id)){
       return(list)
-    }else {return null}
+    }
   }
 
  
