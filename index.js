@@ -251,7 +251,18 @@ function filterByGenre(movies, genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let releasedYear = []
+  for(i = 0; i < movies.length; i++){
+    let movie = movies[i]
+    if(movie.released.split(" ")[2] <= year)
+    //finds movie splits the release to the second index which us the year. Checks if its less than or equal to the year given. 
+
+    //NOTE: I thought I was wrong when I had it reverse year and when I switched it it worked. Ask why. 
+    releasedYear.push(movie)
+  }
+  return releasedYear 
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -264,7 +275,9 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  
+}
 
 // Do not change anything below this line.
 module.exports = {
