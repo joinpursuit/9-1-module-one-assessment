@@ -93,7 +93,7 @@ function getAverageIMDBRating(movies) {
 function countByRating(movies) {
   let ratingObj = {};
   for (const movie of movies) {
-    let rating = movie[`rated`]
+    const rating = movie[`rated`]
     if (ratingObj[rating]) {
       ratingObj[rating] += 1;
     } else {
@@ -119,7 +119,7 @@ function countByRating(movies) {
  */
 function findById(movies, id) {
   for (const movie of movies) {
-    if(movie[`imdbID`] === id) {
+    if (movie[`imdbID`] === id) {
       return movie;
     }
   }
@@ -149,8 +149,8 @@ function findById(movies, id) {
 function filterByGenre(movies, genre) {
   let movieList = [];
   for (const movie of movies) {
-    let genres = movie[`genre`].toUpperCase().split(`, `);
-    if(genres.includes(genre.toUpperCase())) {
+    const genres = movie[`genre`].toUpperCase().split(`, `);
+    if (genres.includes(genre.toUpperCase())) {
       movieList.push(movie);
     }
   }
@@ -179,7 +179,16 @@ function filterByGenre(movies, genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() { }
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let movieList = [];
+  for (const movie of movies) {
+    const releaseYear = movie[`released`].slice(-4);
+    if (+ releaseYear <= year) {
+      movieList.push(movie);
+    }
+  }
+  return movieList;
+}
 
 /**
  * getBiggestBoxOfficeMovie()
