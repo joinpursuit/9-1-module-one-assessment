@@ -216,7 +216,18 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let genres = []
+  //Variable for the return 
+  for(i= 0; i < movies.length; i++){
+    //filter through movies.length 
+    let movieGenre = movies[i].genre.toLowerCase().includes(genre.toLowerCase())
+    //movieGenre makes sure its it takes in whatever case I give it 
+    if(movieGenre)
+      genres.push(movies[i])
+  }
+  return genres
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
