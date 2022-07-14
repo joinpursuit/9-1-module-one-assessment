@@ -30,7 +30,7 @@ const exampleMovies = require("./movies");
  */
 function getAllMovieTitles(movies) {
 //create a var to hold movies names
-let names = []
+const names = []
 //loop through the movie array
 for (let i = 0; i < movies.length; i++) {
 //pull out movies.title for each movie 
@@ -56,10 +56,9 @@ function getHighestMetascore(movies) {
   if(movies[i].metascore >= movies[0].metascore){
   movies[0].metascore = movies[i].metascore
   highest = movies[0].metascore
-  highest
   } 
   }
-    return highest
+    return parseInt(highest)
 }
 
 /**
@@ -94,13 +93,12 @@ average += movies[i].imdbRating / movies.length
  */
 function countByRating(movies) {
   
-  let  obj = {}
+  const  obj = {}
   let rate = 0
   for (let i = 0; i < movies.length; i++) {
   if(movies[i].rated === movies[0].rated){
-  objrate += 1
+  rate += 1
   
-    
   }
   }
   return obj
@@ -166,7 +164,15 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+// const t []
+  for (let i = 0; i < movies.length; i++) {
+  if(movies[i].released <= year ){
+
+  }
+   
+}
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -179,7 +185,13 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  for (let i = 0; i < movies.length; i++) {
+    if(movies[i].boxOffice > movies[0].boxOffice){ 
+      return movies[i].title
+    } 
+  } 
+}
 
 // Do not change anything below this line.
 module.exports = {
