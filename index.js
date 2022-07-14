@@ -128,16 +128,6 @@ function countByRating(movies) {
     };
  */
 
-// function findById(movies, id) {
-  
-//   for(let movie of movies){
-//     if (id === movie.imdbID){
-//       return movie.title
-//     }
-//   } return null
-// }
-
-
 function findById(movies, id) {
 
   for (let movie of movies) {
@@ -226,7 +216,7 @@ function getBiggestBoxOfficeMovie(movies) {
     return null
   }
   for (let movie of movies){
-    let num = movie.boxOffice.slice(1).replaceAll(`,`, ``)
+    let num = Number(movie.boxOffice.slice(1).replaceAll(`,`, ``))
     if (num > amount){
       console.log(amount)
       amount = num
