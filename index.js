@@ -127,10 +127,22 @@ function countByRating(movies) {
       // Toy Story 4
     };
  */
+
+// function findById(movies, id) {
+  
+//   for(let movie of movies){
+//     if (id === movie.imdbID){
+//       return movie.title
+//     }
+//   } return null
+// }
+
+
 function findById(movies, id) {
-  for(let movie of movies){
-    if (id === movie.imdbID){
-      return movie.title
+
+  for (let i=0; i < movies.length; i++) {
+    if (id === movies[i].imdbID) {
+      return movies[i].title
     }
   } return null
 }
@@ -210,9 +222,14 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
 function getBiggestBoxOfficeMovie(movies) {
   let amount = 0
   let title = ""
+  if(movies.length === 0) {
+    return null
+  }
+  console.log(movies[0].boxOffice.slice(1).replaceAll(`,`,``))
   for (let movie of movies){
-    if (movie.boxOffice.slice(1) > amount){
-      amount = movie.boxOffice.slice(1)
+    let num = movie.boxOffice.slice(1).replaceAll(`,`, ``)
+    if (num > amount){
+      amount = num
       title = movie.title
     }
   } return title
