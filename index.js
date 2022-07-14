@@ -83,7 +83,7 @@ function getAverageIMDBRating(movies) {
   let avRating = 0;
   
   // iterate through the movies object using a loop
-for(const m = 0; )
+for(const m = 0; m < movies.length; m++)
 // create a variable to fectch the imdbRating
 let rating = movies[].imdbRating / movies
 console.log(rating)
