@@ -29,12 +29,15 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
+  //foloow accumulator pattern. create an empty arr then return
 let newArr = [];
-
+//if the movie is empty return thr empty arr
 if(movies.length === 0){
   return newArr;
 }
+//iterate through the movies to find the movie titles. 
 for(let i=0; i<movies.length; i++){
+  //after finding movie, push to the arr
   newArr.push(movies[i].title)
 }
 return newArr;
@@ -53,13 +56,13 @@ return newArr;
  *  //> 96
  */
 function getHighestMetascore(movies) {
-let scoreM = 0;
+//let scoreM = 0;
+
+//console.log(movies['metascore'])
 
 
 
-
-
-return scoreM;
+//return scoreM;
 
 
 }
@@ -75,7 +78,16 @@ return scoreM;
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  // declare a variable for the ratings value.
+  let avRating = 0;
+  
+  // iterate through the movies object using a loop
+for(const m = 0; )
+// create a variable to fectch the imdbRating
+let rating = movies[].imdbRating / movies
+console.log(rating)
+}
 
 /**
  * countByRating()
@@ -104,7 +116,10 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById() {
+  //guard clause --> maybe somwthing like...if (movies === 0; || Id !== movies) return null.
+
+}
 
 /**
  * filterByGenre()
@@ -150,7 +165,25 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+let reDate =[];
+// if(conditional) 
+//let therelease = movies.released
+//console.log(therelease)
+//create a loop to iterate through the movie object
+for(let r = 0; r < movies.length; r++){
+  //create a date range to isolate the release date
+let theDate = movies[r].released.slice(-4) // 4 digit year
+//console.log(theDate)
+if( theDate <= year){
+  //console.log(year) // 4 digit only
+  //push the movie to the arr crrated
+  reDate.push(movies[r])
+}
+}
+return reDate
+
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -163,7 +196,13 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  // let str = '';
+
+
+
+  // return str;
+}
 
 // Do not change anything below this line.
 module.exports = {
