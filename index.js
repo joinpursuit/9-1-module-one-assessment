@@ -28,7 +28,21 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  //foloow accumulator pattern. create an empty arr then return
+let newArr = [];
+//if the movie is empty return thr empty arr
+if(movies.length === 0){
+  return newArr;
+}
+//iterate through the movies to find the movie titles. 
+for(let i=0; i<movies.length; i++){
+  //after finding movie, push to the arr
+  newArr.push(movies[i].title)
+}
+return newArr;
+
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +55,24 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  if( movies.length === 0){
+    return 0;
+  }
+    //let highestMeta= metsc;
+  
+  let metScore = movies[0].metascore // individual metascore value
+  //console.log("!", metScore)
+  
+   for(let i = 0; i < movies.length; i++){
+        if(metScore < movies[i].metascore){
+         metScore = movies[i].metascore// changed string to Number.
+        } 
+      }
+      //highestMeta = metScore;
+      //console.log('###', highestMeta)
+   return Number(metScore);
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +85,18 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  // declare a variable for the ratings value.
+  let avRating = 0;
+  // iterate through the movies object using a loop
+    for(let m = 0; m < movies.length; m++){
+  // updaste variable to fectch the imdbRating values
+     avRating += movies[m].imdbRating / movies.length ;
+  //console.log(avRating.toFixed(1))
+
+}
+return avRating;
+}
 
 /**
  * countByRating()
@@ -67,7 +109,28 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  //create a rated variable
+//let theRate = movies.rated
+// create an empty object var --> accumulator papptern
+let count = {};
+
+// we need to loop throught the movie object
+for(let c =0; c < movies.length; c++){
+    //for(let r = 0; r <movies[c].rated.length){
+
+      if(count[movies[c].rated]){
+        count[movies[c].rated] +=1;
+      }   else { 
+             count[movies[c].rated] = 1;
+      }
+      
+      // if the value is present, increment by 1 , if not decrement by 1. 
+    //}
+
+}
+return count;
+}
 
 /**
  * findById()
@@ -83,7 +146,27 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  //guard clause --> maybe somwthing like...if (movies === 0; || Id !== movies) return null.
+  if(movies.length === 0){
+    return null;
+  }
+  for(let i = 0; i < movies.length; i++){
+    if(movies[i].imdbID === id){
+          return movies[i]
+    }
+  }
+    return null
+    //console.log(obj)
+// for (mov of movies){
+//   if(mov.imdbID === id){
+//     return mov
+//   }
+// }
+// return null
+  }
+
+
 
 /**
  * filterByGenre()
@@ -105,7 +188,23 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  //create a individual genre var
+//   let gen = movies.genre
+//   console.log(gen)
+let arr = []
+if (movies.length === 0){
+  return arr;
+}
+for(mov of movies){
+  let lowerCase= mov.genre.toLowerCase();
+  let lowGen = genre.toLocaleLowerCase(); 
+    if(lowerCase.includes(lowGen)){
+arr.push(mov)
+  }
+}
+return arr
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,10 +228,26 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+let reDate =[];
+// if(conditional) 
+//let therelease = movies.released
+//create a loop to iterate through the movie object
+for(let r = 0; r < movies.length; r++){
+  //create a date range to isolate the release date
+let theDate = movies[r].released.slice(-4) // 4 digit year
+//console.log(theDate)
+if( theDate <= year){
+  //push the movie to the arr crrated
+  reDate.push(movies[r])
+}
+}
+return reDate
+
+}
 
 /**
- * getBiggestBoxOfficeMovie()
+ * ge metascoregestBoxOfficeMovie()
  * -----------------------------
  * Returns the name of the movie with the highest `boxOffice` amount.
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
@@ -142,7 +257,33 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  //create an empty str var
+  //create a var to select thr first boxOffice number
+  //loop through the movies object
+  //iupdate the str var
+  //compate the bigBox number to every bigBox numbers.
+  //return str, as the updated values. 
+if( movies.length === 0){
+  return null;
+}
+  let big = movies[0].title;
+
+let biggerbox = movies[0].boxOffice // individual boxOffice value
+//console.log(biggerbox)
+
+ for(let i = 0; i < movies.length; i++){
+      if(Number(biggerbox.replace(/[$,]+/g,"")) < Number(movies[i].boxOffice.replace(/[$,]+/g,""))){
+        biggerbox = movies[i].boxOffice.replace(/[$,]+/g,"")//updated with the movie title of the movie with the biggest box office value 
+    
+       //movieTitle = movies[i].title
+        //console.log(biggerbox)
+        big = movies[i].title;
+}
+}
+//console.log(big)
+ return big;
+}
 
 // Do not change anything below this line.
 module.exports = {
