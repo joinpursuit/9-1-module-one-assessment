@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -28,7 +29,16 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  //wants an array of movies
+  // IF no movies retrun empty array
+  let movieTitles = []
+  for (let titles of movies) {
+    movieTitles.push(titles.title) 
+  }
+  return movieTitles
+}
+console.log(movies[0].title)
 
 /**
  * getHighestMetascore()
@@ -41,8 +51,22 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
-
+function getHighestMetascore(movies) {
+  //wants highest metascore of all movies
+  // IF movies array is empty, retrun 0
+  // wants a loop of movies
+  let highMeta = {}
+  if (!movies.metascore){
+    return `0`
+  }
+  let score1 = movies[0]
+  for(let meta of movies){
+    if(meta.metascore > score1.metascore){
+      score1 = meta
+    }
+  }
+  return highMeta
+}
 /**
  * getAverageIMDBRating()
  * -----------------------------
@@ -54,7 +78,7 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {}
 
 /**
  * countByRating()
@@ -105,7 +129,9 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  //
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,7 +155,7 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -142,7 +168,7 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {}
 
 // Do not change anything below this line.
 module.exports = {
