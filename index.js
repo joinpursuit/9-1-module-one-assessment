@@ -92,12 +92,10 @@ average += movies[i].imdbRating / movies.length
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
-  
   const  obj = {}
-  let rate = 0
   for (let i = 0; i < movies.length; i++) {
   if(movies[i].rated === movies[0].rated){
-  rate += 1
+ obj.rated += 1
   
   }
   }
@@ -118,7 +116,18 @@ function countByRating(movies) {
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies,id) {
+for (let i = 0; i < movies.length; i++) {
+  if(movies === []){
+    return null
+  }
+  if(movies[i].imdbID === id){
+     return movies[i]
+  } else {
+    return null
+  }
+}
+}
 
 /**
  * filterByGenre()
@@ -140,7 +149,17 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  const match = []
+for (let i = 0; i < movies.length; i++) {
+  let genre1 = movies[i].genre
+  genre1 = genre1.split(" ")
+  if(genre1[i] === genre){
+  match.push(movies[i])
+  }
+}
+  return match
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -165,14 +184,19 @@ function filterByGenre() {}
     ];
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
-// const t []
-  for (let i = 0; i < movies.length; i++) {
-  if(movies[i].released <= year ){
+const debuted = []
+for (let i = 0; i < movies.length; i++) {
+//break released string into an array to check year against year
+let releasedYear = movies[i].released 
+releasedYear = releasedYear.split(" ")
+if(releasedYear[2] <= year){
+debuted.push(movies[i])
+  } 
+  
+}
+return debuted
+}
 
-  }
-   
-}
-}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -187,10 +211,11 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  */
 function getBiggestBoxOfficeMovie(movies) {
   for (let i = 0; i < movies.length; i++) {
-    if(movies[i].boxOffice > movies[0].boxOffice){ 
+    if(movies[i].boxOffice > movies[0].boxOffice ){ 
       return movies[i].title
-    } 
+    }  
   } 
+  return null
 }
 
 // Do not change anything below this line.
