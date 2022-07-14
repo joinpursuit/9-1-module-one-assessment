@@ -143,21 +143,39 @@ function countByRating(movies) {
     };
  */
 function findById(movies, id) {
-  if(!movies.length){
+  let invalid = null
+  //make null a default return
+    for(i = 0; i < movies.length; i++){
+      //loop through movies.length 
+      let movie = movies[i]
+      //var for movies found
+      if(movie.imdbID.includes(id))
+        //does it include id?
+        return movie
+  }
+  return invalid
+/*
+   SAVE FOR REVIEW: 
+
+   the codes below work in the same thought process as the one above but I didn't want to use methods. Why were they pulling different checks. 
+
+     if(!movies.length){
+      //not movies 
     return null
   }
   for(i = 0; i < movies.length; i++){
-    let movie = movies[i].imdbID
-    if(movie === id){
+    //loop through movies.length 
+    let movie = movies[i]
+    //var for the found movie
+    if(movie.imdID === id){
+      //is the found movie at ID = id? 
     return movies[i]
-    }else{
-
+    }else{ 
     return null
     }
     //Second and last two passing 
   }
 
-    /*
 
   BOTTOM 3 PASSING 
    let movieNames = {}
