@@ -142,7 +142,41 @@ function countByRating(movies) {
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  if(!movies.length){
+    return null
+  }
+  for(i = 0; i < movies.length; i++){
+    let movie = movies[i].imdbID
+    if(movie === id){
+    return movies[i]
+    }else{
+
+    return null
+    }
+    //Second and last two passing 
+  }
+
+    /*
+
+  BOTTOM 3 PASSING 
+   let movieNames = {}
+  if(!movies.length){
+    return null
+  }
+  for(i = 0; i < movies.length; i++){
+    let movie = movies[i].imdbID
+    if(movie === id){
+      movieNames = movies[i]
+    }else {
+      movieNames = null
+    }
+
+  }
+  return movieNames
+  
+  */
+}
 
 /**
  * filterByGenre()
