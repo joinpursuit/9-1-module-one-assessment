@@ -78,7 +78,7 @@ function getAverageIMDBRating(movies) {
   let totalRating = 0
   let avgRating = 0
   let counter = 0
-  
+
   if(movies.length === 0)
   return 0
 
@@ -106,7 +106,44 @@ function getAverageIMDBRating(movies) {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  counterG = 0
+  counterPG = 0
+  rating = {}
+     
+      //gaurd clause in case movies array is empty
+      if(movies.length === 0)
+      return {}
+    
+      //see what the values of "rated" are
+      //for (let movie of movies) {
+         //console.log(movie.rated)
+      //}
+      
+      // count number of movies rated G
+      for (let movie of movies) {
+         if(movie.rated === "G")
+           counterG = counterG + 1
+      }
+       
+      // count number of movies rated PG
+        for (let movie of movies) {
+         if(movie.rated === "PG")
+          counterPG = counterPG + 1
+      }
+    
+      // console.log("G rated ", counterG)
+      // console.log("PG rated ", counterPG)
+  
+      //add values to object rating
+      rating.G = counterG
+      rating.PG = counterPG
+      //console.log(rating)
+  
+      return rating
+
+      //I am not passing the 'dynamically changing' test - not sure what else I need to do
+}
 
 /**
  * findById()
@@ -122,7 +159,28 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+ 
+   //guard clause in case movies array is empty
+   if(movies.length === 0)
+   return null
+
+    let thisMovie = {}
+    let check = 0
+    for (movie of movies){
+    if(movie.imdbID === id){
+      //console.log(movie.imdbID)
+      check++
+      thisMovie = {...movie}
+    }
+    if(check === 0){
+      thisMovie = null
+    }    
+  }  
+  //console.log(thisMovie)
+  return thisMovie
+  
+}
 
 /**
  * filterByGenre()
@@ -144,7 +202,41 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let movieGenre = []
+  let genreTest = false
+  let thisGenre =""
+  let check = 0
+ 
+ //guard clause in case movies array is empty
+     if(movies.length === 0)
+      return []
+
+     //movieGenre[genre] = movies[0].genre
+     //console.log(movieGenre)
+
+   for ( let movie of movies){
+       let thisGenre = movie.genre
+       //console.log(thisGenre)
+       thisGenre = thisGenre.toLowerCase()
+       genre = genre.toLowerCase()
+       genreTest = thisGenre.includes(genre)
+       //console.log(genreTest)
+     
+       if(genreTest === true) { 
+        movieGenre.push(movie)
+       //console.log(movie) 
+        check++
+       }
+      if(check === 0){
+       movieGenre = []
+     } 
+   }
+      //console.log(movieGenre)
+      return movieGenre
+
+
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -168,7 +260,24 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  olderMovies = []
+  let yearMovieReleased
+ 
+  for(let movie of movies){
+     yearMovieReleased = movie.released
+     yearMovieReleased = yearMovieReleased.slice(-4)
+     yearMovieReleased = parseInt(yearMovieReleased)
+     //console.log("from data ",yearMovieReleased)
+     //console.log(typeof yearMovieReleased)
+     //console.log("input ",year)
+     if(yearMovieReleased <= year){
+       olderMovies.push(movie)
+     }
+  }
+    //console.log(olderMovies)
+    return olderMovies
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -181,7 +290,35 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  if(movies.length === 0)
+  return null
+
+  let topBoxOffice = 0
+  let topMovie = ""
+  let money
+  let topMoney
+  //console.log(movies[0].boxOffice)
+     
+   for( let movie of movies){
+      //console.log(movie.boxOffice)
+      money = movie.boxOffice
+      money = money.substring(1)
+      money = money.replaceAll(',', '')
+      money = Number(money)
+       // console.log(money) 
+      //  console.log(typeof money)
+       if(money > topBoxOffice){
+         //console.log("data boxoffice ", movie.boxOffice)
+         topBoxOffice = money
+         //console.log("new topBoxOffice ", topBoxOffice)
+         topMovie = movie.title
+       }
+     }
+    //console.log (topMovie)
+    return topMovie
+
+}
 
 // Do not change anything below this line.
 module.exports = {
