@@ -125,7 +125,7 @@ function findById(movies , id) {
   let newObj = {}
   for(let i = 0; i < movies.length; i++){
     if(movies[i].imdbID === id){
-     newObj = movies[i].imdbID
+     newObj[movies[i].imdbID]
     }
     else if (movies[i].imdbID !== id){
       return null
@@ -210,7 +210,22 @@ function getAllMoviesReleasedAtOrBeforeYear(movies , year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+ function getBiggestBoxOfficeMovie(movies) {
+  let max = 0
+  let newStr = ''
+  if(movies.length === 0){
+    return null
+  }
+  for(let i = 0; i < movies.length; i++){
+    if(Number(movies[i].boxOffice.replaceAll(",", "").replaceAll("$", "")) > max)
+    max = Number(movies[i].boxOffice.replaceAll(",", "").replaceAll("$", "")) 
+    if(movies[i].boxOffice.includes(`$${max.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`)){
+      newStr = movies[i].title
+    }
+    }
+  
+  return newStr
+}
 
 // Do not change anything below this line.
 module.exports = {
