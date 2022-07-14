@@ -51,7 +51,15 @@ return names
  *  //> 96
  */
 function getHighestMetascore(movies) {
-
+  let highest = 0
+  for (let i = 0; i < movies.length; i++) {
+  if(movies[i].metascore >= movies[0].metascore){
+  movies[0].metascore = movies[i].metascore
+  highest = movies[0].metascore
+  highest
+  } 
+  }
+    return highest
 }
 
 /**
