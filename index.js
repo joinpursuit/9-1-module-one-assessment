@@ -201,7 +201,16 @@ return matches
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+let matched = []
+for(let film of movies){
+  
+  if(parseInt(film.released.slice(-4)) <= year){
+    matched.push(film)
+  }
+}
+return matched
+}
 
 /**
  * getBiggestBoxOfficeMovie()
