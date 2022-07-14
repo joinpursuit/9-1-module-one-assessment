@@ -563,10 +563,11 @@ function findById(movies,id) {
   // }
   for(let list of movies){
     if(list['imdbID']==(id)){
-      return(list)
+      def = list
+      //return(list)
     }
   }
-
+return def
  
   
 }
