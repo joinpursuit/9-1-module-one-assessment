@@ -101,7 +101,32 @@ function getAverageIMDBRating(movies) {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let ratings = {}
+
+  for (let i = 0; i < movies.length; i++){
+    if(ratings[movies[i].rated])
+    ratings[movies[i].rated] += 1 
+    else
+    ratings[movies[i].rated] = 1
+  }
+  return ratings
+
+  /*
+    SAVE FOR REVIEW:
+   Code below is my original thought. I tried it and it didn't work but when I didn't use the variable it worked. WHY? It's the same code and the reading says nothing about not "mutating" the Array. Ask Carlos Friday. 
+   
+  //create variable for rating object 
+  for(i=0; i < movies.length; i++){
+    let rating = ratings[movies[i].rated]
+  //Create a variable for movies rated
+    if(rating)
+    rating += 1
+    else 
+   rating = 1
+  }
+  */
+}
 
 /**
  * findById()
