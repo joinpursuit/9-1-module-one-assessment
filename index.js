@@ -660,18 +660,24 @@ function getBiggestBoxOfficeMovie(movies) {
   if(movies.length == 0){
     return(biggest)
   }
-  let amount = movies[0]['boxOffice']
+  let amount = movies[0]['boxOffice'].slice(1)
+  let noComm = Number(amount.replaceAll(',',''))
   biggest = movies[0]["title"]
-
+// console.log(noComm)
   for (let allMovies of movies){
-    //console.log(allMovies.boxOffice)
-    if (allMovies.boxOffice > amount){
+
+    //console.log((allMovies.boxOffice.slice(1)).replaceAll(',',''))
+    if (Number((allMovies.boxOffice.slice(1)).replaceAll(',','')) > noComm){
       biggest = allMovies.title
-      amount = allMovies.boxOffice
-      console.log(amount)
+      amount = allMovies.boxOffice.slice(1)
+      noComm = Number(amount.replaceAll(',',''))
+
+      //console.log(noComm)
+      //console.log(biggest)
     }
   }
-//return biggest
+
+return biggest
 }
 getBiggestBoxOfficeMovie(movies)
 // Do not change anything below this line.
