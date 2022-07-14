@@ -168,14 +168,15 @@ function findById(movies, id) {
 function filterByGenre(movies, genre) {
   movieArr = []
   if (movies.length === 0) {
-  return movieArr
+    return movieArr
   }
   for (movie of movies) {
   
     if (movie.genre.toLowerCase().includes(genre.toLowerCase())) {
       movieArr.push(movie)
-      return movieArr
+    
     } 
+    
   }
   return movieArr
 }
@@ -215,7 +216,7 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
        console.log('#####', Number(movie.released.slice(7)))
       movieYearArr.push(movie)
       console.log('#####', movieYearArr)
-      return movieYearArr
+      
     }
   }
   return movieYearArr
