@@ -54,6 +54,16 @@ function getAllMovieTitles(movies) {
  *  //> 96
  */
 function getHighestMetascore(movies) {
+  let highest = 0
+  //create an variable for the highest meta score 
+  for(i = 0; i < movies.length; i++){
+    //loop through the movies.length
+    let metascore = parseInt(movies[i].metascore)
+    //create a variable for meta score converting the string array into a number 
+    if(metascore > highest)
+    highest = metascore
+  }
+  return highest
 }
 
 /**
