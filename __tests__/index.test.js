@@ -42,17 +42,17 @@ describe("getAllMovieTitles()", () => {
 });
 
 describe("getHighestMetascore()", () => {
-  test.only("should return highest Metascore of all movies as a number", () => {
+  test("should return highest Metascore of all movies as a number", () => {
     const actual = getHighestMetascore(movies);
     const expected = 96;
     expect(actual).toEqual(expected);
   });
-  test.only("should dynamically change depending on the movies inputted", () => {
+  test("should dynamically change depending on the movies inputted", () => {
     const actual = getHighestMetascore(alternative);
     const expected = 88;
     expect(actual).toEqual(expected);
   });
-  test.only("should return `0` if there are no movies", () => {
+  test("should return `0` if there are no movies", () => {
     const actual = getHighestMetascore([]);
     const expected = 0;
     expect(actual).toEqual(expected);
@@ -60,17 +60,17 @@ describe("getHighestMetascore()", () => {
 });
 
 describe("getAverageIMDBRating()", () => {
-  test("should return the average IMDB rating across all movies", () => {
+  test.only("should return the average IMDB rating across all movies", () => {
     const actual = getAverageIMDBRating(movies);
     const expected = 7.76;
     expect(actual).toBeCloseTo(expected, 2);
   });
-  test("should dynamically change depending on the movies inputted", () => {
+  test.only("should dynamically change depending on the movies inputted", () => {
     const actual = getAverageIMDBRating(alternative);
     const expected = 7.6;
     expect(actual).toBeCloseTo(expected, 2);
   });
-  test("should return `0` if there are no movies", () => {
+  test.only("should return `0` if there are no movies", () => {
     const actual = getAverageIMDBRating([]);
     const expected = 0;
     expect(actual).toBeCloseTo(expected, 2);

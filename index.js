@@ -79,7 +79,17 @@ return meta
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let rating = 0
+  if(movies.length == 0){
+    return rating
+  }
+
+  for (let rates of movies){
+    rating+= Number(rates.imdbRating)
+  }
+  return(rating/movies.length)
+}
 
 /**
  * countByRating()
