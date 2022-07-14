@@ -86,7 +86,7 @@ function getAverageIMDBRating(movies) {
   for(let m = 0; m < movies.length; m++){
   // updaste variable to fectch the imdbRating values
   avRating += movies[m].imdbRating / movies.length ;
-  console.log(avRating.toFixed(1))
+  //console.log(avRating.toFixed(1))
 
 }
 return avRating;
@@ -103,7 +103,28 @@ return avRating;
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  //create a rated variable
+//let theRate = movies.rated
+// create an empty object var --> accumulator papptern
+let count = {};
+
+// we need to loop throught the movie object
+for(let c =0; c < movies.length; c++){
+    //for(let r = 0; r <movies[c].rated.length){
+
+      if(count[movies[c].rated]){
+        count[movies[c].rated] +=1;
+      }   else { 
+             count[movies[c].rated] = 1;
+      }
+      
+      // if the value is present, increment by 1 , if not decrement by 1. 
+    //}
+
+}
+return count;
+}
 
 /**
  * findById()
