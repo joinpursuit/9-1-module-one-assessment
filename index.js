@@ -278,6 +278,8 @@ function getBiggestBoxOfficeMovie(movies) {
   for (let i = 0; i < movies.length; i++) {
     let currency = movies[i].boxOffice;
     let number = Number(currency.replace(/[^0-9\.-]+/g, ''));
+    // convert currency string to a number using .replace(/[^0-9\.-]+/g, '')
+    //https://stackoverflow.com/questions/559112/how-to-convert-a-currency-string-to-a-double-with-javascript
     if (number > intMax) {
       intMax = number;
       nameOfBoxOfficeHit = movies[i].title;
