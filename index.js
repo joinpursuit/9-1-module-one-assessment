@@ -92,10 +92,12 @@ average += movies[i].imdbRating / movies.length
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
-  const  obj = {}
+  let obj = {}
   for (let i = 0; i < movies.length; i++) {
-  if(movies[i].rated === movies[0].rated){
- obj.rated += 1
+  if(movies.rated[i] === movies[0].rated){
+
+  console.log(movie.rated)
+  // += 1
   
   }
   }
@@ -117,17 +119,21 @@ function countByRating(movies) {
     };
  */
 function findById(movies,id) {
-for (let i = 0; i < movies.length; i++) {
-  if(movies === []){
-    return null
-  }
-  if(movies[i].imdbID === id){
-     return movies[i]
-  } else {
-    return null
-  }
+  let obj = {} 
+  for (let i = 0; i < movies.length; i++) {
+    if(movies.length === 0){
+      return null
+       } 
+    } 
+    for (let i = 0; i < movies.length; i++) {
+      if(id === movies[i].imdbID){
+        return obj = movies[i]
+      }
+    }  
+    return obj
 }
-}
+
+
 
 /**
  * filterByGenre()
@@ -191,8 +197,7 @@ let releasedYear = movies[i].released
 releasedYear = releasedYear.split(" ")
 if(releasedYear[2] <= year){
 debuted.push(movies[i])
-  } 
-  
+  }   
 }
 return debuted
 }
@@ -211,7 +216,7 @@ return debuted
  */
 function getBiggestBoxOfficeMovie(movies) {
   for (let i = 0; i < movies.length; i++) {
-    if(movies[i].boxOffice > movies[0].boxOffice ){ 
+    if(movies[i].boxOffice > movies[0].boxOffice){ 
       return movies[i].title
     }  
   } 
