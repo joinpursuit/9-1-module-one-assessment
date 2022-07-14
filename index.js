@@ -50,7 +50,7 @@ function getAllMovieTitles(movies) {
 function getHighestMetascore(movies) {
   let highScore = 0;
   for (const movie of movies) {
-    if(movie[`metascore`] > highScore) {
+    if (movie[`metascore`] > highScore) {
       highScore = + movie[`metascore`];
     }
   }
@@ -68,7 +68,16 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  if (!movies.length) {
+    return movies.length;
+  }
+  let sum = 0;
+  for (const movie of movies) {
+    sum += + movie[`imdbRating`];
+  }
+  return sum / movies.length;
+}
 
 /**
  * countByRating()
@@ -81,7 +90,18 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let ratingObj = {};
+  for (const movie of movies) {
+    let rating = movie[`rated`]
+    if (ratingObj[rating]) {
+      ratingObj[rating] += 1;
+    } else {
+      ratingObj[rating] = 1;
+    }
+  }
+  return ratingObj;
+}
 
 /**
  * findById()
@@ -97,7 +117,7 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById() { }
 
 /**
  * filterByGenre()
@@ -119,7 +139,7 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre() { }
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -143,7 +163,7 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear() { }
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -156,7 +176,7 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie() { }
 
 // Do not change anything below this line.
 module.exports = {
