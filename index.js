@@ -28,7 +28,16 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+//create a var to hold movies names
+let names = []
+//loop through the movie array
+for (let i = 0; i < movies.length; i++) {
+//pull out movies.title for each movie 
+names.push(movies[i].title)
+ }
+return names
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +50,9 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +65,9 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+
+}
 
 /**
  * countByRating()
@@ -67,7 +80,9 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+
+}
 
 /**
  * findById()
