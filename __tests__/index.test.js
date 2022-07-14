@@ -13,7 +13,7 @@ const movies = require("../movies");
 const alternative = require("./fixtures/alternative-movies");
 
 describe("getAllMovieTitles()", () => {
-  test.only("should return all of the movie titles in an array", () => {
+  test("should return all of the movie titles in an array", () => {
     const actual = getAllMovieTitles(movies);
     const expected = [
       "Toy Story 4",
@@ -29,12 +29,12 @@ describe("getAllMovieTitles()", () => {
     ];
     expect(actual).toEqual(expected);
   });
-  test.only("should dynamically change depending on the movies inputted", () => {
+  test("should dynamically change depending on the movies inputted", () => {
     const actual = getAllMovieTitles(alternative);
     const expected = ["Black Panther", "Wonder Woman", "Jaws", "Skyfall"];
     expect(actual).toEqual(expected);
   });
-  test.only("should return an empty array if there are no movies", () => {
+  test("should return an empty array if there are no movies", () => {
     const actual = getAllMovieTitles([]);
     const expected = [];
     expect(actual).toEqual(expected);
@@ -42,17 +42,17 @@ describe("getAllMovieTitles()", () => {
 });
 
 describe("getHighestMetascore()", () => {
-  test("should return highest Metascore of all movies as a number", () => {
+  test.only("should return highest Metascore of all movies as a number", () => {
     const actual = getHighestMetascore(movies);
     const expected = 96;
     expect(actual).toEqual(expected);
   });
-  test("should dynamically change depending on the movies inputted", () => {
+  test.only("should dynamically change depending on the movies inputted", () => {
     const actual = getHighestMetascore(alternative);
     const expected = 88;
     expect(actual).toEqual(expected);
   });
-  test("should return `0` if there are no movies", () => {
+  test.only("should return `0` if there are no movies", () => {
     const actual = getHighestMetascore([]);
     const expected = 0;
     expect(actual).toEqual(expected);
