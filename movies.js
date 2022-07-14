@@ -408,5 +408,58 @@ const movies = [
   },
 ];
 
+
+
+//  function countByRating(movies) {
+//   if (!movies.length){
+//     return {}
+//   }  
+  // gotta figure out better way to make dynamic
+  // let G = 0
+  // let PG = 0
+  // let PG13 = 0
+  // for (movieRated of movies) {
+  //   if (movieRated.rated === "G"){
+  //     G ++
+  //   }
+  //   if (movieRated.rated === "PG"){
+  //     PG ++
+  //   }
+  //   if (movieRated.rated === "PG-13"){
+  //     PG13 ++
+  //   }
+  // }
+  // let obj = {G: G, PG: PG,[`PG-13`]: PG13}
+  // for (Del in obj) {
+  //   if (obj[Del] === 0)
+  //     delete obj[Del] 
+  // }
+//   return obj
+// }
+// console.log(countByRating(movies))
+// console.log(obj) 
+
+
+// function findById(movies,id) {
+//   if (!movies.length){
+//     return null
+//   }   
+
+//   for (let i = 0; i < movies.length; i++) {
+//     if (movies[i].imdbID === id ){
+//     return `${movies[i].title}`
+//     }
+//   }  
+// }
+
+// console.log(findById(movies,"tt0892769"))
+
+function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
+  let obj = []
+  for (let i = 0; i < movies.length; i++) {
+   console.log(movies[i].released.slice(-4))
+  }
+}
+console.log(getAllMoviesReleasedAtOrBeforeYear(movies,2000) )
 // Do not change anything below this line.
 module.exports = movies;
