@@ -77,7 +77,18 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let average = 0
+  //creating a variable for average ratings
+  for(i = 0; i < movies.length; i++){
+    //looping through the movies
+    let ratings = Number(movies[i].imdbRating)
+    //creating a variable for rating. WHY DOES PARSEINT NOT WORK HERE 
+    average += ratings / movies.length 
+    //Making the math math
+  }
+  return average
+}
 
 /**
  * countByRating()
