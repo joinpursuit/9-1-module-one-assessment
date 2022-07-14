@@ -28,7 +28,17 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+
+if(movies.length === 0){
+  return []
+}
+let titles = [];
+for(let film of movies){
+  titles.push(film.title)
+}
+return titles
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +51,20 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+if(movies.length === 0){
+  return 0
+}
+
+let highMeta = movies[0].metascore
+for(let film of movies){
+  if(highMeta < film.metascore){
+    highMeta = film.metascore
+  }
+}
+
+return parseInt(highMeta)
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +77,17 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+if(movies.length === 0){
+  return 0
+}
+let aver = 0;
+for(let film of movies){
+  aver += film.imdbRating / movies.length
+}
+
+return aver
+}
 
 /**
  * countByRating()
@@ -67,7 +100,22 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+if(movies.length === 0){
+  return {}
+}
+
+let ratingCount = {}
+for(let film of movies){
+    if(!ratingCount[film.rated]){
+      ratingCount[film.rated] = 1
+    } else {
+      ratingCount[film.rated] += 1
+    }
+  } 
+  return ratingCount
+}
+
 
 /**
  * findById()
@@ -83,7 +131,19 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+if(movies.length === 0){
+  return null
+}
+
+for(let film of movies){
+  if(film.imdbID === id){
+    return film
+  } 
+  
+}
+return null
+}
 
 /**
  * filterByGenre()
@@ -105,7 +165,19 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+if(movies.length === 0){
+  return []
+}
+let matches = []
+for(let film of movies){
+  if(film.genre.toLowerCase().includes(genre.toLowerCase())){
+    matches.push(film)
+  }
+  
+}
+return matches
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
