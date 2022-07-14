@@ -223,7 +223,21 @@ return matched
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  if(movies.length === 0){
+    return null
+  }
+
+  let highest = parseInt(movies[0].boxOffice.replace(/[$,]+/g,""))
+  let name = movies[0].title
+for(let film of movies){
+  if(parseInt(film.boxOffice.replace(/[$,]+/g,"")) > highest){
+    highest = film.boxOffice.replace(/[$,]+/g,"")
+    name = film.title
+  }
+}
+return name
+}
 
 // Do not change anything below this line.
 module.exports = {
