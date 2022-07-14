@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -28,7 +29,10 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  //Iterate all movie titles into an array
+  return movies.map((movie) => movie.title);
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +45,19 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  //var iteration for metascore array
+  const arr = movies.map((movie) => movie.metascore)
+  //var for highest metascore
+  let highest = 0
+  //iteration for finding the highest metascore
+  for (i = 0; i <= highest; i ++){
+    if(arr[i] > highest){
+      highest = arr[i];
+    }
+  }
+  return parseInt(highest);
+}
 
 /**
  * getAverageIMDBRating()
