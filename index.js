@@ -28,7 +28,19 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let movie = []
+  // create an array to represent the movie
+  for(i = 0; i < movies.length; i++){
+    //loop through movies.length
+    let title = movies[i].title 
+    //create a variable for the movie title
+    movie.push(title)
+    //push the title into the array
+  }
+
+  return movie 
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +53,18 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let highest = 0
+  //create an variable for the highest meta score 
+  for(i = 0; i < movies.length; i++){
+    //loop through the movies.length
+    let metascore = parseInt(movies[i].metascore)
+    //create a variable for meta score converting the string array into a number 
+    if(metascore > highest)
+    highest = metascore
+  }
+  return highest
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +77,18 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let average = 0
+  //creating a variable for average ratings
+  for(i = 0; i < movies.length; i++){
+    //looping through the movies
+    let ratings = Number(movies[i].imdbRating)
+    //creating a variable for rating. WHY DOES PARSEINT NOT WORK HERE 
+    average += ratings / movies.length 
+    //Making the math math
+  }
+  return average
+}
 
 /**
  * countByRating()
@@ -67,7 +101,32 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let ratings = {}
+
+  for (let i = 0; i < movies.length; i++){
+    if(ratings[movies[i].rated])
+    ratings[movies[i].rated] += 1 
+    else
+    ratings[movies[i].rated] = 1
+  }
+  return ratings
+
+  /*
+    SAVE FOR REVIEW:
+   Code below is my original thought. I tried it and it didn't work but when I didn't use the variable it worked. WHY? It's the same code and the reading says nothing about not "mutating" the Array. Ask Carlos Friday. 
+   
+  //create variable for rating object 
+  for(i=0; i < movies.length; i++){
+    let rating = ratings[movies[i].rated]
+  //Create a variable for movies rated
+    if(rating)
+    rating += 1
+    else 
+   rating = 1
+  }
+  */
+}
 
 /**
  * findById()
@@ -83,7 +142,59 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let invalid = null
+  //make null a default return
+    for(i = 0; i < movies.length; i++){
+      //loop through movies.length 
+      let movie = movies[i]
+      //var for movies found
+      if(movie.imdbID.includes(id))
+        //does it include id?
+        return movie
+  }
+  return invalid
+/*
+   SAVE FOR REVIEW: 
+
+   the codes below work in the same thought process as the one above but I didn't want to use methods. Why were they pulling different checks. 
+
+     if(!movies.length){
+      //not movies 
+    return null
+  }
+  for(i = 0; i < movies.length; i++){
+    //loop through movies.length 
+    let movie = movies[i]
+    //var for the found movie
+    if(movie.imdID === id){
+      //is the found movie at ID = id? 
+    return movies[i]
+    }else{ 
+    return null
+    }
+    //Second and last two passing 
+  }
+
+
+  BOTTOM 3 PASSING 
+   let movieNames = {}
+  if(!movies.length){
+    return null
+  }
+  for(i = 0; i < movies.length; i++){
+    let movie = movies[i].imdbID
+    if(movie === id){
+      movieNames = movies[i]
+    }else {
+      movieNames = null
+    }
+
+  }
+  return movieNames
+  
+  */
+}
 
 /**
  * filterByGenre()
@@ -105,7 +216,18 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let genres = []
+  //Variable for the return 
+  for(i= 0; i < movies.length; i++){
+    //filter through movies.length 
+    let movieGenre = movies[i].genre.toLowerCase().includes(genre.toLowerCase())
+    //movieGenre makes sure its it takes in whatever case I give it 
+    if(movieGenre)
+      genres.push(movies[i])
+  }
+  return genres
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,7 +251,18 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let releasedYear = []
+  for(i = 0; i < movies.length; i++){
+    let movie = movies[i]
+    if(movie.released.split(" ")[2] <= year)
+    //finds movie splits the release to the second index which us the year. Checks if its less than or equal to the year given. 
+
+    //NOTE: I thought I was wrong when I had it reverse year and when I switched it it worked. Ask why. 
+    releasedYear.push(movie)
+  }
+  return releasedYear 
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -142,7 +275,21 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  if (!movies.length) {
+    return null;
+  }
+  let movieName = movies[0].title
+  let highestBoxOffice = movies[0].boxOffice
+  for (i = 0; i < movies.length; i++) {
+    let movie = movies[i]
+  if (movie.boxOffice > highestBoxOffice) {
+      highestBoxOffice = movie.title;
+      return highestBoxOffice;
+      }
+    }
+    return movieName;
+}
 
 // Do not change anything below this line.
 module.exports = {
