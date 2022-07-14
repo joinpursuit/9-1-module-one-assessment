@@ -57,21 +57,21 @@ return newArr;
  */
 function getHighestMetascore(movies) {
   if( movies.length === 0){
-    return 0;;
+    return 0;
   }
-    let highestMeta =0;
+    //let highestMeta= metsc;
   
   let metScore = movies[0].metascore // individual metascore value
-  //console.log(metScore)
+  //console.log("!", metScore)
   
    for(let i = 0; i < movies.length; i++){
         if(metScore < movies[i].metascore){
-         highestMeta = Number(movies[i].metascore) // changed string to Number.
-            console.log(highestMeta)
-  }
-  }
-  //highestMeta = metScore;
-   return highestMeta;
+         metScore = movies[i].metascore// changed string to Number.
+        } 
+      }
+      //highestMeta = metScore;
+      //console.log('###', highestMeta)
+   return Number(metScore);
 }
 
 /**
@@ -146,13 +146,26 @@ return count;
       // Toy Story 4
     };
  */
-function findById(movies) {
+function findById(movies, id) {
   //guard clause --> maybe somwthing like...if (movies === 0; || Id !== movies) return null.
-  // let obj = {};
+  if(movies.length === 0){
+    return null;
+  }
+  for(let i = 0; i < movies.length; i++){
+    if(movies[i].imdbID === id){
+          return movies[i]
+    }
+  }
+    return null
+    //console.log(obj)
+// for (mov of movies){
+//   if(mov.imdbID === id){
+//     return mov
+//   }
+// }
+// return null
+  }
 
-  
-  // return obj;
-}
 
 
 /**
@@ -175,7 +188,23 @@ function findById(movies) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre(movies) {}
+function filterByGenre(movies, genre) {
+  //create a individual genre var
+//   let gen = movies.genre
+//   console.log(gen)
+let arr = []
+if (movies.length === 0){
+  return arr;
+}
+for(mov of movies){
+  let lowerCase= mov.genre.toLowerCase();
+  let lowGen = genre.toLocaleLowerCase(); 
+    if(lowerCase.includes(lowGen)){
+arr.push(mov)
+  }
+}
+return arr
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -203,14 +232,12 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
 let reDate =[];
 // if(conditional) 
 //let therelease = movies.released
-//console.log(therelease)
 //create a loop to iterate through the movie object
 for(let r = 0; r < movies.length; r++){
   //create a date range to isolate the release date
 let theDate = movies[r].released.slice(-4) // 4 digit year
 //console.log(theDate)
 if( theDate <= year){
-  //console.log(year) // 4 digit only
   //push the movie to the arr crrated
   reDate.push(movies[r])
 }
@@ -240,18 +267,21 @@ function getBiggestBoxOfficeMovie(movies) {
 if( movies.length === 0){
   return null;
 }
-  let big ='';
+  let big = movies[0].title;
 
-let metScore = movies[0].boxOffice // individual boxOffice value
+let biggerbox = movies[0].boxOffice // individual boxOffice value
 //console.log(biggerbox)
 
  for(let i = 0; i < movies.length; i++){
-      if(biggerbox < movies[i].boxOffice){
-        biggerbox = movies[i].title
-          //console.log(biggerbox)
+      if(Number(biggerbox.replace(/[$,]+/g,"")) < Number(movies[i].boxOffice.replace(/[$,]+/g,""))){
+        biggerbox = movies[i].boxOffice.replace(/[$,]+/g,"")//updated with the movie title of the movie with the biggest box office value 
+    
+       //movieTitle = movies[i].title
+        //console.log(biggerbox)
+        big = movies[i].title;
 }
 }
-big = biggerbox;
+//console.log(big)
  return big;
 }
 
