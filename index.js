@@ -527,12 +527,12 @@ function countByRating(movies) {
   for(let rates of movies){
     rating[rates.rated]++
     //console.log (rating)
-    //rating[rated['rated']] = rating[movies.rated]
+    
   }
 
   return rating
 }
-countByRating(movies);
+
 /**
  * findById()
  * -----------------------------
@@ -547,8 +547,30 @@ countByRating(movies);
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies,id) {
+  
 
+  if(movies.length === 0){
+    return null
+  }
+
+  // for(let i=0;i<movies.length;i++){
+  //   if (movies[i].imdbID != id)
+  //   {console.log (null)
+    
+  //   }else{ console.log (movies[i]).imdbID
+  //   }
+  // }
+  for(let list of movies){
+    if(list['imdbID']==(id)){
+      return(list)
+    }else {return null}
+  }
+
+ 
+  
+}
+findById(movies, "tt0892769")
 /**
  * filterByGenre()
  * -----------------------------

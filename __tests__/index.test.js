@@ -78,24 +78,24 @@ describe("getAverageIMDBRating()", () => {
 });
 
 describe("countByRating()", () => {
-  test.only("should return an object where the keys are ratings and the values are the number of movies with that rating", () => {
+  test("should return an object where the keys are ratings and the values are the number of movies with that rating", () => {
     const actual = countByRating(movies);
     const expected = { G: 3, PG: 7 };
     expect(actual).toEqual(expected);
   });
-  test.only("should dynamically change depending on the movies inputted", () => {
+  test("should dynamically change depending on the movies inputted", () => {
     const actual = countByRating(alternative);
     const expected = { PG: 1, "PG-13": 3 };
     expect(actual).toEqual(expected);
   });
-  test.only("should return an empty object if there are no movies", () => {
+  test("should return an empty object if there are no movies", () => {
     const actual = countByRating([]);
     const expected = {};
     expect(actual).toEqual(expected);
   });
 });
 
-describe("findById()", () => {
+describe.only("findById()", () => {
   test("should return the entire movie based on the IMDB ID", () => {
     const id = "tt0892769";
     const actual = findById(movies, id);
