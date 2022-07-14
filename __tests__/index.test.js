@@ -60,17 +60,17 @@ describe("getHighestMetascore()", () => {
 });
 
 describe("getAverageIMDBRating()", () => {
-  test.only("should return the average IMDB rating across all movies", () => {
+  test("should return the average IMDB rating across all movies", () => {
     const actual = getAverageIMDBRating(movies);
     const expected = 7.76;
     expect(actual).toBeCloseTo(expected, 2);
   });
-  test.only("should dynamically change depending on the movies inputted", () => {
+  test("should dynamically change depending on the movies inputted", () => {
     const actual = getAverageIMDBRating(alternative);
     const expected = 7.6;
     expect(actual).toBeCloseTo(expected, 2);
   });
-  test.only("should return `0` if there are no movies", () => {
+  test("should return `0` if there are no movies", () => {
     const actual = getAverageIMDBRating([]);
     const expected = 0;
     expect(actual).toBeCloseTo(expected, 2);
@@ -78,17 +78,17 @@ describe("getAverageIMDBRating()", () => {
 });
 
 describe("countByRating()", () => {
-  test("should return an object where the keys are ratings and the values are the number of movies with that rating", () => {
+  test.only("should return an object where the keys are ratings and the values are the number of movies with that rating", () => {
     const actual = countByRating(movies);
     const expected = { G: 3, PG: 7 };
     expect(actual).toEqual(expected);
   });
-  test("should dynamically change depending on the movies inputted", () => {
+  test.only("should dynamically change depending on the movies inputted", () => {
     const actual = countByRating(alternative);
     const expected = { PG: 1, "PG-13": 3 };
     expect(actual).toEqual(expected);
   });
-  test("should return an empty object if there are no movies", () => {
+  test.only("should return an empty object if there are no movies", () => {
     const actual = countByRating([]);
     const expected = {};
     expect(actual).toEqual(expected);
