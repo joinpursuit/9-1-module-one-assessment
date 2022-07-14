@@ -553,14 +553,7 @@ function findById(movies,id) {
   if(movies.length === 0){
     return null
   }
-
-  // for(let i=0;i<movies.length;i++){
-  //   if (movies[i].imdbID != id)
-  //   {console.log (null)
-    
-  //   }else{ console.log (movies[i]).imdbID
-  //   }
-  // }
+ 
   for(let list of movies){
     if(list['imdbID']==(id)){
       def = list
@@ -592,8 +585,26 @@ findById(movies, "tt0892769")
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
-
+function filterByGenre(movies,genre) {
+  let def = []
+  let genres = []
+  let gUp = genre.toUpperCase()
+  if(movies.length === 0){
+    return def
+  }
+  for (i=0;i<movies.length;i++){
+    genres = (movies[i]["genre"].toUpperCase())
+    //console.log(genres)
+    if(genres.includes(gUp) ){
+      def.push(movies[i])
+    }
+  }
+// console.log(gUp)
+ //console.log(def)
+return (def)
+ 
+}
+filterByGenre(movies, "Horror")
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
  * -----------------------------
