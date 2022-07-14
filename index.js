@@ -557,7 +557,7 @@ function findById(movies,id) {
   for(let list of movies){
     if(list['imdbID']==(id)){
       def = list
-      //return(list)
+      
     }
   }
 return def
@@ -627,8 +627,23 @@ filterByGenre(movies, "Horror")
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
+  let def = []
+  let relYear = 0
+  if(movies.length === 0){
+    return def
+  }
+  for (i=0;i<movies.length;i++){
+    relYear = (movies[i]["released"].slice(7,11))
+    //console.log(relYear)
+    if(relYear <= year ){
+      def.push(movies[i])
+    }
+  }
 
+return (def)
+}
+getAllMoviesReleasedAtOrBeforeYear(movies, 2000)
 /**
  * getBiggestBoxOfficeMovie()
  * -----------------------------
