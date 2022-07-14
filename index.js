@@ -89,6 +89,11 @@ function getAverageIMDBRating(movies) {
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
+  let average = 0
+  for (let i = 0; i < movies.length; i++) {
+average += movies[i].imdbRating / movies.length
+  }
+  return average
 
 }
 
