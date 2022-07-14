@@ -125,7 +125,7 @@ function findById(movies , id) {
   let newObj = {}
   for(let i = 0; i < movies.length; i++){
     if(movies[i].imdbID === id){
-     newObj[movies[i].imdbID]
+     return newObj[movies[i].imdbID]
     }
     else if (movies[i].imdbID !== id){
       return null
