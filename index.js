@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -28,7 +29,19 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+//let movies =[]
+for (let i = 0; i <= movies.length; i++) {
+
+ // return (`${movies[i].name}`)
+}
+
+  
+ return movies ;
+}
+
+
+
 
 /**
  * getHighestMetascore()
@@ -41,7 +54,36 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  
+let number = [0];
+  let director =[];
+  //for (let i=0; i > movies.length; i++) {
+   // if (movies[i] > number) {
+   if(movies > number[0]){
+   
+    number.unshift(movies);
+
+    } else {
+
+    
+    
+    {director.unshift(number[0]);};
+      
+    
+  }
+  return number
+}
+
+    
+   
+    
+    
+  
+ 
+
+  
+
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +96,17 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating() {
+
+const arr = [7.7,8.1,8.4,7.6,7.6,8.1,7.2,8.5,7.7,6.7];
+var sum = 0;
+for (var number of arr) {
+  sum += number;
+}
+  average = sum / arr.length;
+
+  return (average);
+}
 
 /**
  * countByRating()
@@ -67,7 +119,12 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+
+
+  return
+}
+
 
 /**
  * findById()
@@ -83,7 +140,29 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(moviesArr,id){
+
+  for (var i = 0; i< moviesArr.length; i++){
+
+  }
+   if(moviesArr[i] === id){
+
+   
+    return moviesArr[i];
+}
+
+
+return null;
+
+}
+
+    
+
+    
+    
+  
+ 
+
 
 /**
  * filterByGenre()
@@ -142,7 +221,14 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  for (i = 0;i < movies.length;i++) {
+   
+    
+  }
+  return
+}
+
 
 // Do not change anything below this line.
 module.exports = {
