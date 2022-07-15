@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -28,8 +29,24 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+// intialize a accumulator 
+// loop throught movies for each movie title 
+// pull out the title: value
+// push to my empty array (accumulator)
+let accumulator = []
+if (movies.length === 0){
+  return accumulator
+}
+let movieName;
+for (let i = 0; i < movies.length; i++) {
+    movieName = movies[i][`title`];
+    // console.log(movieName)
+    accumulator.push(movieName)
+  }
 
+return accumulator
+} 
 /**
  * getHighestMetascore()
  * -----------------------------
@@ -41,7 +58,25 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  // intialize accumulator
+  // loop thru moives array to find metascore
+  // compare each metascore to metascore 
+  // pull out the highest metascore
+  // no metascore return 0
+  if (movies.length === 0) {
+    return 0
+  }
+  //  initialized a maxium element
+  let max = Number(movies[0][`metascore`])
+  // console.log(max)
+    for(let i = 1; i < movies.length; i ++ ){
+       if(Number(movies[i].metascore > max)){
+           max = Number(movies[i].metascore)
+       }
+    }
+ return max
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,9 +89,34 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  if (movies.length === 0) {
+    return 0
+  }
+//  initialize 3 variable to 0
+let counter = 0
+let avgMovie = 0
+let movieTotal = 0 
+let imdbStr = ''
+let strToNum = 0
+// loop thru movies to find IMDB ratings for all the movies
+// get each IMDB ratings number 
+// find imdb ratings but is a string 
+// converted ratings to number
+// get my average using counter method
+for (const film of movies) {
+  imdbStr = film[`imdbRating`]
+  strToNum = Number(imdbStr) 
+  movieTotal = movieTotal + strToNum
+  counter = counter + 1
+  avgMovie = movieTotal/counter
+} 
+//  avgMovie = movieTotal/counter
+// return avgMovie
+return avgMovie
+}
 
-/**
+/* 
  * countByRating()
  * -----------------------------
  * Returns an object where the keys are movie ratings and the values are the number of movies in the array with that rating. If the inputted `movies` array is empty, return `{}`.
@@ -67,7 +127,35 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  // initial an empty obj
+
+  let obj = {};
+// if no input this if statement will 
+	if (movies.length === 0) {
+		return obj;
+	}
+	let typeOfRatings = [];
+	for (let i = 1; i < movies.length; i++) {
+		if (typeOfRatings.includes(movies[i].rated)) {
+		} else {
+			typeOfRatings.push(movies[i].rated);
+		}
+	}
+  for(let rt of typeOfRatings){
+	  	obj[rt] = 0;
+	 };
+
+	for (let i = 0; i < movies.length; i++) {
+		for (let j = 0; j < typeOfRatings.length; j++) {
+			if (movies[i].rated === typeOfRatings[j]) {
+				obj[typeOfRatings[j]] += 1;
+			}
+		}
+	}
+	return obj;
+}
+
 
 /**
  * findById()
@@ -76,17 +164,32 @@ function countByRating() {}
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
  * @param {string} id - A unique `imdbID`.
  * @returns {Object|null} The movie object with the matching `imdbID`.
- *
+ * @returns {object|null} The movie object that contains the matching `imdbID
  * EXAMPLE:
  *  findById(movies, "tt1979376");
  *  //> {
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies,id) {
+  // 
+  let foundMovie = null;
+
+	if (movies.length === 0) {
+		return foundMovie;
+	}
+
+	for (let mv of movies){
+		if (mv.imdbID === id) {
+			foundMovie = mv;
+		}
+	};
+
+	return foundMovie;
+}
 
 /**
- * filterByGenre()
+ * filterByGenre()y
  * -----------------------------
  * Returns all movie objects with a matching genre. Case-insensitive. If the inputted `movies` array is empty or no movies match the inputted `genre`, return `[]`.
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
@@ -105,7 +208,21 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let foundMovies = [];
+	if (movies.length === 0) {
+		return foundMovies;
+	}
+
+	for(const mv of movies) {
+    let genremv = mv.genre.toUpperCase();
+		if (genremv.includes(genre.toUpperCase())) {
+			foundMovies.push(mv);
+		}
+	};
+
+	return foundMovies;
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,7 +246,18 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let foundMovies = [];
+
+	for(const mv of movies){
+		let releasedYear = Number(mv.released.split(' ')[2]);
+		if (releasedYear === year || releasedYear < year) {
+			foundMovies.push(mv);
+		}
+	};
+
+	return foundMovies;
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -142,8 +270,25 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies){
+// 
+  if(movies.length===0){
+    return null;
+  }
+let maxBoxOffice = Number(
+  movies[0].boxOffice.replace('$', '').split(',').join('')
+);
+let nameOfMovie = '';
 
+for(const mv of movies){
+  let boxOffice = Number(mv.boxOffice.replace('$', '').split(',').join(''));
+  if (boxOffice > maxBoxOffice) {
+    nameOfMovie = mv.title;
+  }
+};
+
+return nameOfMovie;
+}
 // Do not change anything below this line.
 module.exports = {
   getAllMovieTitles,
