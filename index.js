@@ -82,7 +82,18 @@ console.log(movies.metascore)
  */
 function getAverageIMDBRating(movies) {
   // returns Imdb average rating
-  // 
+  // IF 'movies' array is empty, return 0
+  // loop through the imbd ratings
+  if (!movies.length){
+    return 0
+  }
+  let rating = 0
+  for(let movie of movies){
+  //imbd is index of movies.length
+     rating += movie.imdbRating / movies.length
+  }
+  
+  return rating
 }
 
 /**
