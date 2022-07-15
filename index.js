@@ -173,7 +173,16 @@ function findById(movies, id) {
  *  //> []
  */
 function filterByGenre(movies, genre) {
-  //
+  let genres = []
+  //varible for genres
+  for (movie of movies){
+    if(movie.genre.toUpperCase().includes(genre.toUpperCase())){
+      //has to be case insensitive
+      genres.push(movie)
+      //IF movies array is empty OR no movies match the genre, return []
+    }
+  }
+  return genres
 }
 
 /**
