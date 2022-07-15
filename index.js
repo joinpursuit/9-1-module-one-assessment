@@ -225,7 +225,7 @@ function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
     // }
   return obj
   }
-  console.log(getAllMoviesReleasedAtOrBeforeYear(exampleMovies,2000) )
+  // console.log(getAllMoviesReleasedAtOrBeforeYear(exampleMovies,2000) )
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -238,7 +238,24 @@ function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  let arr = null
+  if (!movies.length){
+    return arr
+  }
+  let biggestBoxofficeTitle = movies[0].title
+  let biggestBoxoffice = parseInt(movies[0].boxOffice.substring(1))
+  for (let i = 1; i < movies.length; i++) {
+    movieBoxOffice=  movies[i].boxOffice.substring(1)
+    if (biggestBoxoffice < parseInt(movieBoxOffice))
+    {
+      biggestBoxoffice = parseInt(movies[i].boxOffice),
+      biggestBoxofficeTitle = movies[i].title
+    }
+  }
+  return biggestBoxofficeTitle
+}
+
 
 // Do not change anything below this line.
 module.exports = {
