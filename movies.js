@@ -454,12 +454,12 @@ const movies = [
 
 // console.log(findById(movies,"tt0892769"))
 
-function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
-  let obj = []
-  for (let i = 0; i < movies.length; i++) {
-   console.log(movies[i].released.slice(-4))
-  }
-}
-console.log(getAllMoviesReleasedAtOrBeforeYear(movies,2000) )
+// function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
+//   let obj = []
+//   for (let i = 0; i < movies.length; i++) {
+//     if (year === parseInt(movies[i].released.slice(-4)) || year === parseInt(movies[i].released.slice(-4))+1)
+//  obj.push(parseInt(movies[i].released.slice(-4)))  }
+// }
+// console.log(getAllMoviesReleasedAtOrBeforeYear(movies,2019) )
 // Do not change anything below this line.
 module.exports = movies;

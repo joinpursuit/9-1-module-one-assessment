@@ -150,13 +150,15 @@ function findById(movies,id) {
   }   
 
   for (Id of movies) {
+    // console.log(Id)
     if (Id.imdbID === id ){
       // console.log(movies[i].title)
-    
-    
-      return Id.imdbID
+  
+      return Id
     }
   }
+  return null
+
   // for (let i = 0; i < movies.length; i++) {
   //   if (movies[i].imdbID == id ){
   //     console.log(movies[i].title)
@@ -165,7 +167,7 @@ function findById(movies,id) {
   // }  
   // return null
 }
-
+// console.log(findById(exampleMovies,`tt1979376`))
 /**
  * filterByGenre()
  * -----------------------------
@@ -211,11 +213,19 @@ function filterByGenre() {}
     ];
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
-  let obj = []
-  for (let i = 0; i < movies.length; i++) {
-   obj.push(movies[i].released.slice(-4))
+
+    let obj = []
+    for (let i = 0; i < movies.length; i++) {
+      if (year >= parseInt(movies[i].released.slice(-4)) )
+   obj.push(movies[i])  }
+  
+  // let obj = []
+  // for (let i = 0; i < movies.length; i++) {
+    //  obj.push(movies[i].released.slice(-4))
+    // }
+  return obj
   }
-}
+  console.log(getAllMoviesReleasedAtOrBeforeYear(exampleMovies,2000) )
 
 /**
  * getBiggestBoxOfficeMovie()
