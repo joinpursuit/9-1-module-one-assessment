@@ -184,8 +184,20 @@ return null;
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
-
+function filterByGenre(movies,genre) {
+ var i, arr1,arr2
+ arr1 = movies.className.split(' ');
+ arr2 = genre.split(' ');
+ 
+ for  (i = 0; i < arr2.length; i++) {
+  if(arr1.indexOf(arr2[i])== -1) {
+    movies.className +=" "+ arr2[i];
+  }
+  
+ }
+  return genre
+ }
+  
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
  * -----------------------------
