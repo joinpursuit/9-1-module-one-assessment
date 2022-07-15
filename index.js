@@ -150,7 +150,10 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre(movies, genre) {}
+function filterByGenre(movies, genre) {
+  const vids = movies.filter(vids => vids.genre.indexOf(genre) !== - 1);
+  return vids
+};
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -174,7 +177,9 @@ function filterByGenre(movies, genre) {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear(movies, year) {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  return []
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -187,7 +192,11 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie(movies) {}
+function getBiggestBoxOfficeMovie(movies) {
+  //var for boxoffice
+  //var for the movie title
+  return null
+}
 
 // Do not change anything below this line.
 module.exports = {
