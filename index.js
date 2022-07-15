@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -28,7 +29,16 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  //wants an array of movies
+  // IF no movies retrun empty array
+  let movieTitles = []
+  for (let titles of movies) {
+    movieTitles.push(titles.title) 
+  }
+  return movieTitles
+}
+
 
 /**
  * getHighestMetascore()
@@ -41,8 +51,24 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
-
+function getHighestMetascore(movies) {
+  //wants highest metascore of all movies
+  // IF movies array is empty, retrun 0
+  // wants a loop of movies
+  let highMeta = 0
+  //accum
+  for(let meta of movies){
+  //meta is index of movies.length
+    let meta1 = Number(meta.metascore)
+  // converting meta.metascore to a number whom name is meta1  
+    if(meta1 > highMeta){
+    //if meta1 higher than the highMeta then highMeta becomes meta1
+     highMeta = meta1
+    }
+  }
+  return highMeta
+}
+console.log(movies.metascore)
 /**
  * getAverageIMDBRating()
  * -----------------------------
@@ -54,7 +80,21 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  // returns Imdb average rating
+  // IF 'movies' array is empty, return 0
+  // loop through the imbd ratings
+  if (!movies.length){
+    return 0
+  }
+  let rating = 0
+  for(let movie of movies){
+  //imbd is index of movies.length
+     rating += movie.imdbRating / movies.length
+  }
+  
+  return rating
+}
 
 /**
  * countByRating()
@@ -67,7 +107,24 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let rating = {}
+  //making a varible for obj to be returned.
+  for(let movie of movies){
+    //movie is the index to the movies.length.
+    if(!rating[movie.rated]){
+      //combine varible with value. ask if ratings object have rated movies.
+      rating[movie.rated] = 1
+      //if not then give one movie.
+    }
+    else{
+      rating[movie.rated] += 1
+      // if so add movies.
+    }
+  }
+  return rating
+  // IF 'movies' array is empty, return {}.
+}
 
 /**
  * findById()
@@ -83,7 +140,17 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let moviez = null
+  for(movie of movies){
+    if(movie.imdbID === id){
+      return movie
+      //If movies array is empty, OR id dont match then return 'null'
+    }
+  } 
+  return moviez
+  // return matching id or null.
+}
 
 /**
  * filterByGenre()
@@ -105,7 +172,18 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let genres = []
+  //varible for genres
+  for (movie of movies){
+    if(movie.genre.toUpperCase().includes(genre.toUpperCase())){
+      //has to be case insensitive
+      genres.push(movie)
+      //IF movies array is empty OR no movies match the genre, return []
+    }
+  }
+  return genres
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,7 +207,18 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let releasedYear = []
+  for (let movie of movies){
+    let years = movie.released.substring(movie.released.length - 4)
+    if(years <= year){
+      releasedYear.push(movie)
+      //compare IF realeased year is equal of less than given year.
+    }  
+  }
+  return releasedYear
+  //return varible that is the realeased year.
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -142,7 +231,7 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {}
 
 // Do not change anything below this line.
 module.exports = {
