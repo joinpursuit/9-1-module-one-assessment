@@ -38,7 +38,7 @@ function getAllMovieTitles(movies) {
   }
   return movieTitles
 }
-console.log(movies[0].title)
+
 
 /**
  * getHighestMetascore()
@@ -55,18 +55,20 @@ function getHighestMetascore(movies) {
   //wants highest metascore of all movies
   // IF movies array is empty, retrun 0
   // wants a loop of movies
-  let highMeta = {}
-  if (!movies.metascore){
-    return `0`
-  }
-  let score1 = movies[0]
+  let highMeta = 0
+  //accum
   for(let meta of movies){
-    if(meta.metascore > score1.metascore){
-      score1 = meta
+  //meta is index of movies.length
+    let meta1 = Number(meta.metascore)
+  // converting meta.metascore to a number whom name is meta1  
+    if(meta1 > highMeta){
+    //if meta1 higher than the highMeta then highMeta becomes meta1
+     highMeta = meta1
     }
   }
   return highMeta
 }
+console.log(movies.metascore)
 /**
  * getAverageIMDBRating()
  * -----------------------------
@@ -78,7 +80,10 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating(movies) {}
+function getAverageIMDBRating(movies) {
+  // returns Imdb average rating
+  // 
+}
 
 /**
  * countByRating()
