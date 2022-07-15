@@ -107,39 +107,36 @@ function getAverageIMDBRating(movies) {
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
-  counterG = 0
-  counterPG = 0
-  rating = {}
-     
+
       //gaurd clause in case movies array is empty
       if(movies.length === 0)
       return {}
     
-      //see what the values of "rated" are
-      //for (let movie of movies) {
-         //console.log(movie.rated)
-      //}
-      
-      // count number of movies rated G
-      for (let movie of movies) {
-         if(movie.rated === "G")
-           counterG = counterG + 1
-      }
-       
-      // count number of movies rated PG
-        for (let movie of movies) {
-         if(movie.rated === "PG")
-          counterPG = counterPG + 1
-      }
+      let arrA = []
+      let arrB = []
+      let count1 = 0
+      let count2 = 0
+      let rating = {}
+      key1 = ""
+      key2 = ""
     
-      // console.log("G rated ", counterG)
-      // console.log("PG rated ", counterPG)
-  
-      //add values to object rating
-      rating.G = counterG
-      rating.PG = counterPG
+      for(movie of movies) {
+        //console.log(movie.rated)
+        let rateOne = movies[0]["rated"]
+        if (movie.rated === rateOne){
+           arrA.push(movie.rated)
+           count1++
+        } else {
+         arrB.push(movie.rated)
+          count2++
+        }
+       }
+      key1 = arrA[0]
+      key2 = arrB[0]
+      rating[key1] = count1
+      rating[key2] = count2
       //console.log(rating)
-  
+
       return rating
 
       //I am not passing the 'dynamically changing' test - not sure what else I need to do
