@@ -130,18 +130,18 @@ return obj
     };
  */
 function findById(movies, id) {
-  let obj = {}
-  for (let i = 0; i < movies.length; i++) {
-    if (movies.length === 0 || id !== movies.imdbID) {
-      return null
-    }
-  }
+  
+  // for (let i = 0; i < movies.length; i++) {
+  //   if (movies.length === 0 && id !== movies[i].imdbID) {
+  //     return null
+  //   }
+  // }
 for (let i = 0; i < movies.length; i++) {
-    if (id === movies[i].imdbID) {
-     obj = movies[i]
+    if (movies[i].imdbID === id) {
+       return movies[i]
     }
 }
-  return obj
+  return null
 }
 
 /**
@@ -166,11 +166,13 @@ for (let i = 0; i < movies.length; i++) {
  */
 function filterByGenre(movies, genre) {
   let arr = []
+
   for (let i = 0; i < movies.length; i++) {
-    if (movies[i]['genre'] === genre) {
-      arr.push(movies[i])
-    }
-    // console.log(movies[i]['genre'])
+    let genres = movies[i].genre.toLowerCase().includes(genre.toLowerCase())
+      if (genres) {
+        arr.push(movies[i])
+      }
+     
 }
 return arr
 }
@@ -221,16 +223,18 @@ for (let i = 0; i < movies.length; i++) {
  *  //> "Incredibles 2"
  */
 function getBiggestBoxOfficeMovie(movies) {
-let highest = 0
-if (movies.length === 0) {
-  return null
-}
-for (let i = 0; i < movies.length; i++) {
-  // console.log(highest)
-  if (movies[i].boxOffice > highest) {
-    if(movies)
-     highest = movies[i].title
+  let highest 
+  if (!movies.length) {
+    return null
   }
+  let low = movies[0].boxOffice
+  highest = movies[0].title
+  for (let i = 0; i < movies.length; i++) {
+  if (movies[i].boxOffice > low) {
+    low = movies[i].title
+    return low
+  }
+  // console.log(highest)
 }
 return highest
 }
