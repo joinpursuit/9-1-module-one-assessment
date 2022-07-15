@@ -28,7 +28,12 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let allMovies = []
+
+  allMovies = movies.map(value => value.title) 
+  return allMovies
+}
 
 /**
  * getHighestMetascore()
@@ -41,8 +46,20 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  // get all values of the metascore key into an array/object
+  // use Math.max to find the highest value in that array/object
 
+  let metaValues = movies.map(a => a.metascore)
+  let maxMeta = Math.max.apply(Math, metaValues)
+
+  if (movies === movies){
+    return maxMeta
+  } else if (movies = []){
+    return 0
+  }
+
+}
 /**
  * getAverageIMDBRating()
  * -----------------------------
@@ -54,7 +71,26 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let ratings = []
+  let acc = 0
+
+  for (const movie of movies) {
+    if (movie.imdbRating > 0){
+      ratings.push(movie.imdbRating)
+      // console.log(ratings)
+    } const sum = ratings.reduce((partialSum, a) => partialSum + a, 0);
+      console.log(sum)
+    }
+
+    if (movies = []){
+      return 0
+    }
+  } 
+  
+  
+  
+
 
 /**
  * countByRating()
@@ -67,7 +103,11 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+if (movies = []){
+  return {}
+}
+}
 
 /**
  * findById()
@@ -83,7 +123,23 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let idCheck = ' '
+  let movieArr = []
+  let movieObj = {}
+  
+  for (const movie of movies){
+    if (movie.imdbID === id){
+      idCheck = 'Match'
+    } if (idCheck = 'Match'){
+      movieArr.push(movie)
+    } 
+  }
+  
+  if (movies = []){
+    return null
+  }
+}
 
 /**
  * filterByGenre()
@@ -105,7 +161,17 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let movieGenres = []
+  let caseGenre = genre.charAt(0).toUpperCase() + genre.slice(1).toLowerCase()
+
+  for (const movie of movies) {
+    let movieString = movie.genre.split(", ")
+    if (movieString.includes(caseGenre)){
+      movieGenres.push(movie)
+    }
+  } return movieGenres 
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,8 +195,30 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let releasedYears = []
+  let yearString = movies.map(a => a.released)
 
+  for (const years of yearString) {
+    if (years <= year){
+      releasedYears.push(years)
+      return releasedYears
+    }
+  }
+
+  if (movies = []){
+    return []
+  }
+
+  // for (const movie of movies){
+  //   console.log(yearString)
+  //   // if (yearString[i] <= year){
+  //     // releasedYears.push(movie)
+  //     // }
+  //   } 
+    // return releasedYears
+
+  }
 /**
  * getBiggestBoxOfficeMovie()
  * -----------------------------
@@ -142,7 +230,29 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  let moneyValues = movies.map(a => a.boxOffice)
+  // console.log(moneyValues)
+  
+  
+  // for (const movie of movies) {
+  //   let bigMovies = [] 
+  //   let moneyString = movie.boxOffice.split(", ")
+  //   bigMovies.push(moneyString)
+  //   // console.log(bigMovies)
+  // }
+
+  // for (const movie of movies) {
+  //   let movieTitles = [] 
+  //   let titleString = movie.title.split(", ")
+  //   movieTitles.push(titleString)
+  //   // console.log(movieTitles)
+  // }
+
+  if (movies = []){
+    return null
+  }
+}
 
 // Do not change anything below this line.
 module.exports = {
