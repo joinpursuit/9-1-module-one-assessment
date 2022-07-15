@@ -138,8 +138,6 @@ function countByRating(movies) {
       //console.log(rating)
 
       return rating
-
-      //I am not passing the 'dynamically changing' test - not sure what else I need to do
 }
 
 /**
